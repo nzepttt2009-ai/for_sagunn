@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffb6d7">
+<title>Sorry, Sagun 💗</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow-x:hidden;font-family:system-ui,"Trebuchet MS",sans-serif;color:#9b245e;
+background:radial-gradient(circle at 15% 15%,#fff9 0 2px,transparent 3px),linear-gradient(135deg,#ffd8e9,#ffadd2 55%,#f7a0ca);background-size:80px 80px,cover}
+#floaties{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.heart{position:absolute;bottom:-70px;animation:floatUp linear infinite;filter:drop-shadow(0 0 10px #fff);opacity:.8}
+@keyframes floatUp{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+main{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 15px}
+.panel{width:min(850px,100%);padding:clamp(22px,5vw,42px);text-align:center;border:2px solid #ffffffc9;border-radius:32px;background:#fff8fce8;backdrop-filter:blur(10px);box-shadow:0 20px 70px #c32b7040}
+.kicker{font-weight:900;letter-spacing:3px;text-transform:uppercase;font-size:13px;color:#c64c83}
+h1{font-size:clamp(38px,8vw,70px);line-height:1;margin:14px 0;color:#ed3290;text-shadow:0 3px #fff,0 0 22px #ff8fc4}
+.sub{font-size:clamp(17px,3vw,22px);font-weight:800;margin:0 0 22px}
+.video-frame{position:relative;max-width:540px;margin:0 auto;border:5px solid white;border-radius:25px;overflow:hidden;box-shadow:0 12px 35px #bf39754a;background:#f8a6ca}
+video{display:block;width:100%;max-height:66vh;object-fit:contain;background:#f8a6ca}
+.sound{margin:14px auto 0;border:0;border-radius:999px;padding:13px 22px;background:linear-gradient(135deg,#ff4b9b,#e92783);color:#fff;font-weight:900;font-size:16px;box-shadow:0 7px 18px #d8398344;cursor:pointer}
+.note{font-size:clamp(17px,3vw,21px);font-weight:800;line-height:1.6;margin:23px auto 0;max-width:620px;color:#9a2c62}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:19px}
+.tags span{background:#fff;border:1px solid #ffb6d4;border-radius:999px;padding:8px 13px;font-size:14px;font-weight:800}
+.footer{margin-top:22px;font-size:12px;letter-spacing:1px;color:#b64c7c}
+</style>
+</head>
+<body>
+<div id="floaties"></div>
+<main>
+<section class="panel">
+<div class="kicker">A little video, a whole lot of sorry</div>
+<h1>SORRYYYY SAGUN! 💗</h1>
+<p class="sub">Sagun, this one's just for you 🥺</p>
+<div class="video-frame">
+  <video id="myVideo" autoplay muted loop playsinline controls preload="auto">
+    <source src="sorry-video.mp4" type="video/mp4">
+    Your browser does not support this video.
+  </video>
+</div>
+<button class="sound" id="soundBtn" onclick="turnSoundOn()">🔊 Tap here for sound</button>
+<p class="note">I'm really sorry, Sagun. Please don't stay angry naaa. Sending you unlimited pink hearts, hugs and kisses until I get to see that pretty smile again. 🥹💞</p>
+<div class="tags">
+<span>Sorry Sagun 🥺</span><span>Kucchupucchu 💗</span><span>Gussa mat ho na 🌸</span><span>Big hug 🧸</span><span>Please smile 😚</span>
+</div>
+<div class="footer">MADE WITH LOVE & A MILLION PINK HEARTS 💕</div>
+</section>
+</main>
+<script>
+const holder=document.getElementById('floaties');
+const icons=['💗','💖','💕','💘','💞','💓','🌸','✨'];
+for(let i=0;i<48;i++){
+ const el=document.createElement('span');el.className='heart';
+ el.textContent=icons[Math.floor(Math.random()*icons.length)];
+ el.style.left=Math.random()*100+'%';
+ el.style.fontSize=(18+Math.random()*30)+'px';
+ el.style.animationDuration=(7+Math.random()*12)+'s';
+ el.style.animationDelay=(-Math.random()*18)+'s';
+ holder.appendChild(el);
+}
+function turnSoundOn(){
+ const v=document.getElementById('myVideo');
+ v.muted=false;v.volume=1;
+ v.play().catch(()=>{});
+ document.getElementById('soundBtn').textContent='💗 Sound is on — sorryyy!';
+}
+</script>
+</body>
+</html>
